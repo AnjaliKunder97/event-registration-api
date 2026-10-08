@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: event-registration-spring
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/event_registration}
+    username: ${DB_USER:eventapp}
+    password: ${DB_PASSWORD:eventapp}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate   # schema is owned by Flyway, Hibernate only checks that it matches
+  flyway:
+    enabled: true
+
+app:
+  jwt:
+    # Development default only. Set JWT_SECRET (at least 32 characters) in any real environment.
+    secret: ${JWT_SECRET:dev-only-secret-dev-only-secret-dev-only-1234}
+    expiration-minutes: 60
